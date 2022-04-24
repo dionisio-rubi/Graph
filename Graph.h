@@ -1,21 +1,47 @@
 #ifndef GRAPH_H
 #define GRAPH_H
 
+#include <vector>
+#include <algorithm>
+#include <stack>
+#include <queue>
+#include <iostream>
+
 #include "GraphInterface.h"
+#include "GraphNode.h"
 
 template <class T>
 class Graph: public GraphInterface<T>{
-    
+    private:
+        std::vector<T> labelList; //holds all the "keys" for our adjacency list
+        std::vector<std::vector<GraphNode<T>>> adjacencyList; // the "values" for our pseudo-map
+        int vertexNum = 0;
+        int edgeNum = 0;
+
+    protected:
+        int getLabelIndex(T label) const; //get index of label in adjacency list, -1 if not present
+        int getSublistIndex(T major, T minor) const; // get index of node in major's adjacency sublist
+
+        void depthTraversalHelper(T label, void visit(T&), bool* seenArr, std::stack<T>& lstack);
+        void breadthTraversalHelper(T label, void visit(T&), bool* seenArr, std::queue<T>& lqueue);
     public:
-    Graph();
-    int getNumVertices() const;
-    int getNumEdges() const;
-    boolean add(T start, T end, int edgeWeight);
-    boolean remove(T start, T end);
-    int getEdgeWeight(T start, T end) const;
-    void depthFirstTraversal(T start, void visit(T&));
-    void breadthFirstTraversal(T start, void visit(T&));
-    ~Graph();
+        Graph();
+        int getNumVertices() const override;
+        int getNumEdges() const override;
+
+        bool add(T start, T end, int edgeWeight) override;
+        bool remove(T start, T end) override;
+
+        int getEdgeWeight(T start, T end) override;
+
+        void depthFirstTraversal(T start, void visit(T&)) override;
+        void breadthFirstTraversal(T start, void visit(T&)) override;
+
+        // not normally available as part of the graph ADT but extremely helpful
+        void printAdjacencyList() const;
+        std::vector<T> getLabels() const;
+
+        ~Graph();
 };
 
 #include "Graph.cpp"

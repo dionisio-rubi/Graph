@@ -1,50 +1,45 @@
 #include "Graph.h"
 
 template<class T>
-Graph::Graph(){
+Graph<T>::Graph(){
 
 }
 
 template<class T>
-int Graph::getNumVertices() const{
+int Graph<T>::getNumEdges() const{
     return ;
 }
 
 template<class T>
-int Graph::getNumEdges() const{
-    return ;
-}
-
-template<class T>
-boolean Graph::add(T start, T end, int edgeWeight){
-    boolean success = false;
+bool Graph<T>::add(T start, T end, int edgeWeight){
+    bool success = false;
 
     return success;
 }
 
 template<class T>
-boolean Graph::remove(T start, T end){
-    boolean success = false;
+bool Graph<T>::remove(T start, T end){
+    bool success = false;
 
     return success;
 }
 
 template<class T>
-int Graph::getEdgeWeight(T start, T end) const{
+int Graph<T>::getEdgeWeight(T start, T end){
     return ;
 }
 
 template<class T>
-void Graph::depthFirstTraversal(T start, void visit(T&)){
+void Graph<T>::depthFirstTraversal(T start, void visit(T&)){
 
 }
 
 template<class T>
-void Graph::breadthFirstTraversal(T start, void visit(T&)){
+void Graph<T>::breadthFirstTraversal(T start, void visit(T&)){
 
 }
 
 template<class T>
-~Graph::Graph(){
+Graph<T>::Graph(){
 
 }
