@@ -70,36 +70,5 @@ int main(){
 };
 
 void print(std::string& item){
-    // std::ofstream treeFile;
-    // treeFile.open("treeFile.txt", std::ios::app);
     std::cout << item << " ";
-    // treeFile << item << " ";
-    // treeFile.close();
 }
-
-/*
-
-shortestPath(theGraph: Graph, weight: WeightArray) 
- // Step 1: initialization 
-Create a set vertexSet that contains only vertex 0
-n = number of vertices in theGraph
-for (v = 0 through n - 1)
-weight[v] = matrix[0][v] 
-// Steps 2 through n
-// Invariant: For v not in vertexSet, weight[v] is the 
- // smallest weight of all paths from 0 to v that pass 
- // through only vertices in vertexSet before reaching 
- // v. For v in vertexSet, weight[v] is the smallest 
- // weight of all paths from 0 to v (including paths 
- // outside vertexSet), and the shortest path 
- // from 0 to v lies entirely in vertexSet.
-for (step = 2 through n)
-{
-Find the smallest weight[v] such that v is not in vertexSet
-Add v to vertexSet 
-// Check weight[u] for all u not in vertexSet
-for (all vertices u not in vertexSet)
-if (weight[u] > weight[v] + matrix[v][u]) 
-weight[u] = weight[v] + matrix[v][u]
-
-*/
