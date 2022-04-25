@@ -41,9 +41,9 @@ void Graph<T>::depthTraversalHelper(T label, void visit(T&), bool* seenArr, std:
     visit(label);
     for(int i = 0; i < adjacencyList[index].size(); i++){
         if(adjacencyList[index][i] != 0){
+            // std::cout << adjacencyList[index][i] << sstd::endl;
             depthTraversalHelper(labelList[i], visit, seenArr, lstack);
-        }    
-        // std::cout << adjacencyList[index][i] << std::endl;
+        }
         // depthTraversalHelper(labelList[i], visit, seenArr, lstack);
     }
     // lstack.push(label);
@@ -61,12 +61,13 @@ void Graph<T>::breadthTraversalHelper(T label, void visit(T&), bool* seenArr, st
         for(int i = 0; i < adjacencyList[index].size(); i++){
             if(adjacencyList[index][i] != 0){
                 // std::cout << adjacencyList[index][i] << std::endl;
-                breadthTraversalHelper(labelList[i], visit, seenArr, lqueue);
+                lqueue.push(labelList[i]);
+                // breadthTraversalHelper(labelList[i], visit, seenArr, lqueue);
                 }
                 // std::cout << adjacencyList[index][i] << std::endl;
                 // depthTraversalHelper(labelList[i], visit, seenArr, lstack);
             }
-            lqueue.push(label);
+            // lqueue.push(label);
             
             // for(int i = 0; i < adjacencyList[index].size(); i++){
             //     breadthTraversalHelper(labelList[i], visit, seenArr, lqueue);
