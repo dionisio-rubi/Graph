@@ -8,13 +8,12 @@
 #include <iostream>
 
 #include "GraphInterface.h"
-#include "GraphNode.h"
 
 template <class T>
 class Graph: public GraphInterface<T>{
     private:
         std::vector<T> labelList; //holds all the "keys" for our adjacency list
-        std::vector<std::vector<GraphNode<T>>> adjacencyList; // the "values" for our pseudo-map
+        std::vector<std::vector<int>> adjacencyList; // the "values" for our pseudo-map
         int vertexNum = 0;
         int edgeNum = 0;
 
@@ -32,7 +31,7 @@ class Graph: public GraphInterface<T>{
         bool add(T start, T end, int edgeWeight) override;
         bool remove(T start, T end) override;
 
-        int getEdgeWeight(T start, T end) override;
+        int getEdgeWeight(T start, T end) const override;
 
         void depthFirstTraversal(T start, void visit(T&)) override;
         void breadthFirstTraversal(T start, void visit(T&)) override;
