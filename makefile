@@ -3,7 +3,7 @@ all: graphs
 graphs: driver.o
 	g++ -o graphs driver.o
 
-driver.o: driver.o Graph.h #Node.h LinkedStack.h AQueue.h
+driver.o: driver.o Graph.h
 	g++ -c driver.cpp
 
 clean:
