@@ -12,14 +12,14 @@
 template <class T>
 class Graph: public GraphInterface<T>{
     private:
-        std::vector<T> labelList; //holds all the "keys" for our adjacency list
-        std::vector<std::vector<int>> adjacencyList; // the "values" for our pseudo-map
+        std::vector<T> labelList; //holds the "keys" for  adjacency list
+        std::vector<std::vector<int>> adjacencyList; // the "values" for matrix
         int vertexNum = 0;
         int edgeNum = 0;
 
     protected:
-        int getLabelIndex(T label) const; //get index of label in adjacency list, -1 if not present
-        int getSublistIndex(T major, T minor) const; // get index of node in major's adjacency sublist
+        int getLabelIndex(T label) const; //get index of label in labelList, -1 if not present
+        int getSublistIndex(T major, T minor) const; // get index of weight in adjacencyList
 
         void depthTraversalHelper(T label, void visit(T&), bool* seenArr, std::stack<T>& lstack);
         void breadthTraversalHelper(T label, void visit(T&), bool* seenArr, std::queue<T>& lqueue);

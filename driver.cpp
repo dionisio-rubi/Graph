@@ -25,8 +25,8 @@ int main(){
     std::cout << g.getNumVertices() << std::endl;
 
     g.printAdjacencyList();
-    // g.depthFirstTraversal("Reno", print);
-    // std::cout << std::endl;
+    g.depthFirstTraversal("Reno", print);
+    std::cout << std::endl;
     g.breadthFirstTraversal("Reno", print);
     std::cout << std::endl;
     return 0;

@@ -40,16 +40,13 @@ void Graph<T>::depthTraversalHelper(T label, void visit(T&), bool* seenArr, std:
     seenArr[index] = true;
     visit(label);
     for(int i = 0; i < adjacencyList[index].size(); i++){
-        // if(!seenArr[/*adjacencyList[index][i]*/i]){
-            if(adjacencyList[index][i] != 0){
-                std::cout << adjacencyList[index][i] << std::endl;
-            }
-            depthTraversalHelper(labelList[adjacencyList[index][i]], visit, seenArr, lstack);
-        // }
+        if(adjacencyList[index][i] != 0){
+            depthTraversalHelper(labelList[i], visit, seenArr, lstack);
+        }    
         // std::cout << adjacencyList[index][i] << std::endl;
         // depthTraversalHelper(labelList[i], visit, seenArr, lstack);
     }
-    lstack.push(label);
+    // lstack.push(label);
 }
 
 template<class T>
@@ -60,14 +57,12 @@ void Graph<T>::breadthTraversalHelper(T label, void visit(T&), bool* seenArr, st
     }
     if(!seenArr[index]){
         seenArr[index] = true;
-            visit(label);
-            for(int i = 0; i < adjacencyList[index].size(); i++){
-                // if(!seenArr[i]){
-                    if(adjacencyList[index][i] != 0){
-                        std::cout << adjacencyList[index][i] << std::endl;
-                    }
-                    breadthTraversalHelper(labelList[adjacencyList[index][i]], visit, seenArr, lqueue);
-                // }
+        visit(label);
+        for(int i = 0; i < adjacencyList[index].size(); i++){
+            if(adjacencyList[index][i] != 0){
+                // std::cout << adjacencyList[index][i] << std::endl;
+                breadthTraversalHelper(labelList[i], visit, seenArr, lqueue);
+                }
                 // std::cout << adjacencyList[index][i] << std::endl;
                 // depthTraversalHelper(labelList[i], visit, seenArr, lstack);
             }
