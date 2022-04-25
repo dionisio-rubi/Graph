@@ -37,7 +37,7 @@ class Graph: public GraphInterface<T>{
         void breadthFirstTraversal(T start, void visit(T&)) override;
 
         // not normally available as part of the graph ADT but extremely helpful
-        void printAdjacencyList() const;
+        void printAdjacencyList() const; // in reality, this prints the adjacency matrix not list
         std::vector<T> getLabels() const;
 
         ~Graph();
