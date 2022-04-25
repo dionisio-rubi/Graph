@@ -8,6 +8,7 @@ void print(std::string& item);
 
 int main(){
     Graph<std::string> g;
+    int mpg = 40;
 
     std::ifstream file;
     file.open("initialVals.txt");
@@ -20,9 +21,14 @@ int main(){
         }
     }
     file.close();
+    std::cout << g.getNumEdges() << std::endl;
+    std::cout << g.getNumVertices() << std::endl;
 
     g.printAdjacencyList();
-    g.depthFirstTraversal("Reno", print);
+    // g.depthFirstTraversal("Reno", print);
+    // std::cout << std::endl;
+    g.breadthFirstTraversal("Reno", print);
+    std::cout << std::endl;
     return 0;
 };
 
